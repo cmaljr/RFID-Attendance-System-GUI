@@ -48,7 +48,7 @@ Once the Arduino circuit is configured, download and setup the latest Arduino ID
 * MFRC522 by miguelbalboa
 * RTClib by Adafruit
 
-Once both libraries are downloaded, press the Verify icon (the checkmark) to compile the code. The status of the compilation should appear in the terminal at the bottom of the window. If the compilation fails, check to see if all the included libraries have been successfully installed and attempt to compile the code again. Once the code compiles, connect a USB 2.0 cable to the Arduino and your computer and select the Upload icon (the right arrow) next to the Verify icon. If the code successfully compiled, the code should upload to the Arduino with no issues.
+Once both libraries are downloaded, press the Verify icon (the checkmark) to compile the code. The status of the compilation should appear in the terminal at the bottom of the window. If the compilation fails, check to see if all the included libraries have been successfully installed and attempt to compile the code again. Once the code compiles, connect the USB 2.0 cable to the Arduino and your computer and select the Upload icon (the right arrow) next to the Verify icon. If the code successfully compiled, the code should upload to the Arduino with no issues.
 
 ### Main Functions
 
@@ -57,7 +57,7 @@ The Arduino code is divided into three main functions:
 * Registering RFID cards to classes
 * Taking attendance of students in a class
 
-To test each of the functions, connect the Arduino circuit to your computer using a USB cable. Compile and upload the writing test code to the Arduino. Ensure that the microSD card has been inserted in the SDCard moduel, then run the Serial Monitor under the Tools tab. Change the line ending settings to no new line. 
+To test each of the functions, connect the Arduino circuit to your computer using the USB cable. Compile and upload the writing test code to the Arduino. Ensure that the microSD card has been inserted in the SDCard moduel, then run the Serial Monitor under the Tools tab. Change the line ending settings to no new line. 
 
 To activate the correct function, one of the following characters should be sent through the serial monitor:
 * 'W': used to activate the writing function
@@ -67,7 +67,7 @@ To activate the correct function, one of the following characters should be sent
 Once one of these characters has been sent, input the name of a class followed by the newline character, '\n'. **The name of the class must be no longer than 8 characters due to the formatting of folders on microSD cards**. A good format to follow for this is to use the prefix of a class and its number (ex: CS1302). If the class does not exist, a new folder will be created on the microSD card. Each folder contains a list of all the unique IDs, or UIDs, of registered cards and files of attendance for each day attendance was recorded. The following steps provide step-by-step examples of testing each of the three functions.
 
 ### Testing Write Functions
-If the 'W' character is sent to test the write functions, place and hold one of the MIFARE cards on the RFID reader. Once initialization completes, write a person's first and last name into the serial monitor. Make sure to separate the names with a comma and end the name with the newline character '\n' (ex: John,Smith\n). A message should appear indicating whether the name was encoded to a given block of the card. Remove the card from the reader once this message has been displayed. If you would like to view the data on the card, use the test from miguelbalboa's DumpInfo test.
+If the 'W' character is sent to test the write functions, place and hold one of the MIFARE cards on the RFID reader. Once initialization completes, write a person's first and last name into the serial monitor. Make sure to separate the surname with a comma (ex: John,Smith). A message should appear indicating whether the name was encoded to a given block of the card. Remove the card from the reader once this message has been displayed. If you would like to view the data on the card, download the attendanceSystem_checkCard Arduino code and upload the code to the Arduino. Open the serial monitor and tap a card on the RFID reader, the monitor should display the card's UID and the name encoded to the card.
 
 ### Testing Registration Functions
 If the 'R' character is sent to test the class registration functions, place and hold one of the MIFARE cards on the RFID reader. Once initialization completes, tap an unregistered MIFARE card onto the RFID reader. The program will search the class folder to see if the card's UID has been recorded. Since the current card is unregistered, the cards's UID will be added to the class registery. Once the card is registered, tap the same card on the reader again. The program should communicate that the card has already been registered. Evidence of this function can be viewed by removing the microSD card from the SDCard module, placing it in a microSDCard adapter, and inserting the adapter into your computer. Open the created class folder and review the contents of the UIDs.txt file to confirm the UID is present. Feel free to test this feature with other MIFARE cards and classes. 
