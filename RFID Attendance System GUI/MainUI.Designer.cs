@@ -196,7 +196,7 @@
             // 
             this.appTitle.AutoSize = true;
             this.appTitle.BackColor = System.Drawing.Color.Transparent;
-            this.appTitle.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.appTitle.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.appTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.appTitle.Location = new System.Drawing.Point(7, 21);
             this.appTitle.Name = "appTitle";
